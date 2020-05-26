@@ -7,7 +7,7 @@ function App() {
         <>
             <Button></Button>
             <Button btnType={ButtonType.Promary} size={ButtonSize.Large}></Button>
-            <Button href="http://www.baidu.com" btnType={ButtonType.Link}></Button>
+            <Button href="http://www.baidu.com" btnType={ButtonType.Link} disabled></Button>
             <Button btnType={ButtonType.Promary} size={ButtonSize.Large} disabled></Button>
         </>
     );

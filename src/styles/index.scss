@@ -4,3 +4,6 @@
 // sass对模块化的支持意思是只能当模块导入不能单独使用
 //reboot
 @import "reboot";
+
+//button
+@import "../components/Button/style"

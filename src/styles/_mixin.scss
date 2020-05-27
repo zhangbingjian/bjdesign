@@ -1,1 +1,47 @@
-@mixin button-size($padding-x, $padding-y, $font-size) {}
+/**
+ * @fileOverview 混入文件
+ * @author: 炳健
+ * @time: 2020-5-26
+ */
+
+//sass个人理解,混入相当于函数传入参数返回样式,减少重复书写
+
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+
+//lighten(颜色, 百分比)   颜色函数,生成新颜色
+@mixin button-style($background,
+  $border,
+  $color,
+  $hover-background:lighten($background, 7.5%),
+  $hover-border:lighten($border, 10%),
+  $hover-color:$color,
+) {
+  color: $color;
+  background: $background;
+  border-color: $border;
+
+  &:hover {
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+  }
+
+  &:focus,
+  &.focus {
+    color: $hover-color;
+    background: $hover-background;
+    border-color: $hover-border;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $color;
+    background: $background;
+    border-color: $border;
+  }
+}

@@ -1,0 +1,49 @@
+/**
+ * @fileOverview alert按钮样式
+ * @author: 炳健
+ * @time: 2020-5-28
+ */
+
+.alert {
+  color: $gray-800;
+  width: 100%;
+  min-height: $font-size-base;
+  padding: 10px;
+  border: $btn-border-width solid transparent;
+  background-image: none;
+  font-size: $font-size-base * 1.1;
+  position: relative;
+
+  .alert-children {
+    color: $gray-700;
+    font-size: $font-size-base * 0.9;
+    margin-top: 4;
+  }
+}
+
+.alert-info {
+  @include alert-style($alert-border-info);
+}
+
+.alert-success {
+  @include alert-style($alert-border-success);
+}
+
+.alert-warning {
+  @include alert-style($alert-border-warning);
+}
+
+.alert-error {
+  @include alert-style($alert-border-error);
+}
+
+.closed {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 13px;
+  height: 13px;
+  background: url(../../assets/icon/icon-close.ico) no-repeat center;
+  background-size: 13px;
+  cursor: pointer;
+}

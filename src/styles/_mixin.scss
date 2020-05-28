@@ -18,7 +18,7 @@
   $border,
   $color,
   $hover-background:lighten($background, 7.5%),
-  $hover-border:lighten($border, 10%),
+  $hover-border:lighten($border, 15%),
   $hover-color:$color,
 ) {
   color: $color;

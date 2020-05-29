@@ -27,6 +27,8 @@
 
 .alert-success {
   @include alert-style($alert-border-success);
+  background-color: rgb(246, 255, 237);
+
 }
 
 .alert-warning {
@@ -35,6 +37,38 @@
 
 .alert-error {
   @include alert-style($alert-border-error);
+}
+
+.alert-info-icon {
+  padding-left: 50px;
+  background-image: url(../../assets/icon/icon-error.svg);
+  background-repeat: no-repeat;
+  background-position: 13px 10px;
+  background-size: 25px;
+}
+
+.alert-success-icon {
+  padding-left: 50px;
+  background-image: url(../../assets/icon/icon-success.svg);
+  background-repeat: no-repeat;
+  background-position: 13px 10px;
+  background-size: 25px;
+}
+
+.alert-warning-icon {
+  padding-left: 50px;
+  background-image: url(../../assets/icon/icon-error.svg);
+  background-repeat: no-repeat;
+  background-position: 13px 10px;
+  background-size: 25px;
+}
+
+.alert-error-icon {
+  padding-left: 50px;
+  background-image: url(../../assets/icon/icon-error.svg);
+  background-repeat: no-repeat;
+  background-position: 13px 10px;
+  background-size: 25px;
 }
 
 .closed {
@@ -47,4 +81,8 @@
   background-size: 13px;
   padding: 4px;
   cursor: pointer;
+}
+
+.message-line {
+  width: 88%;
 }

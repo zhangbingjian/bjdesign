@@ -15,13 +15,16 @@ function App() {
                 }}
             />
             <hr />
-            <Alert type={AlertType.Success} closable>
+            <Alert type={AlertType.Success} icon closable>
                 <span>1231231231231内容</span>
             </Alert>
             <hr />
             <Alert type={AlertType.Warning} closable />
             <hr />
-            <Alert type={AlertType.Error} closable />
+            <Alert type={AlertType.Error} icon closable>
+                qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu
+                qweqhweiuaiu
+            </Alert>
         </div>
     );
 }

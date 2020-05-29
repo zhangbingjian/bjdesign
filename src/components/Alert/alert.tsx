@@ -1,16 +1,16 @@
 /** @format */
 
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import classNames from 'classnames';
 
 interface BaseAlertProps {
     className?: string;
-    message?: string;
-    title?: string;
-    type?: AlertType;
+    message?: string; //提示的信息
+    type?: AlertType; //提示的类型
     children?: React.ReactNode; //按钮内部元素
     closable: boolean; //是否可关闭(默认不可)
-    onClose?: Function;
+    icon?: boolean;
+    onClose?: Function; //关闭的回调函数
 }
 
 export enum AlertType { //alert类型
@@ -21,24 +21,29 @@ export enum AlertType { //alert类型
 }
 
 const Alert: React.FC<BaseAlertProps> = props => {
-    const {className, title, message, type, children, closable, onClose} = props;
+    const [show, setShow] = useState(true);
+    const {className, message, type, children, closable, onClose, icon} = props;
     const classes = classNames('alert', className, {
         [`alert-${type}`]: type,
+        [`alert-${type}-icon`]: icon,
     });
     const close = useRef(null);
     return (
         <>
-            <div className={classes} ref={close}>
-                {closable && (
-                    <div
-                        className="closed"
-                        onClick={() => {
-                            onClose && onClose();
-                        }}></div>
-                )}
-                <div>{message}</div>
-                <div className="alert-children">{children}</div>
-            </div>
+            {show && (
+                <div className={classes} ref={close}>
+                    {closable && (
+                        <div
+                            className="closed"
+                            onClick={() => {
+                                setShow(false);
+                                onClose && onClose();
+                            }}></div>
+                    )}
+                    <div className="message-line">{message}</div>
+                    <div className="alert-children">{children}</div>
+                </div>
+            )}
         </>
     );
 };
@@ -48,7 +53,7 @@ Alert.defaultProps = {
     type: AlertType.Info,
     closable: false,
     onClose: () => {
-        alert('关闭Alert');
+        console.log('关闭alert');
     },
 };
 

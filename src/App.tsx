@@ -25,6 +25,10 @@ function App() {
                 qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu
                 qweqhweiuaiu
             </Alert>
+
+            <Alert type={AlertType.Warning} icon banner closable>
+                9999
+            </Alert>
         </div>
     );
 }

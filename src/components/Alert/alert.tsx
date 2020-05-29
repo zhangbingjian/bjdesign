@@ -8,8 +8,8 @@ interface BaseAlertProps {
     message?: string; //提示的信息
     type?: AlertType; //提示的类型
     children?: React.ReactNode; //按钮内部元素
-    closable: boolean; //是否可关闭(默认不可)
-    icon?: boolean;
+    closable?: boolean; //是否可关闭(默认不可)
+    icon?: boolean; //是否显示icon图标
     onClose?: Function; //关闭的回调函数
 }
 

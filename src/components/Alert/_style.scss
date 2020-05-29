@@ -22,11 +22,12 @@
 }
 
 .alert-info {
-  @include alert-style($alert-border-info);
+  @include alert-style(#91d5ff);
+  background-color: #e6f7ff;
 }
 
 .alert-success {
-  @include alert-style($alert-border-success);
+  @include alert-style(#b7eb8f);
   background-color: rgb(246, 255, 237);
 
 }
@@ -36,12 +37,13 @@
 }
 
 .alert-error {
-  @include alert-style($alert-border-error);
+  @include alert-style(#ffccc7);
+  background-color: #fff2f0;
 }
 
 .alert-info-icon {
   padding-left: 50px;
-  background-image: url(../../assets/icon/icon-error.svg);
+  background-image: url(../../assets/icon/icon-info.svg);
   background-repeat: no-repeat;
   background-position: 13px 10px;
   background-size: 25px;
@@ -57,7 +59,7 @@
 
 .alert-warning-icon {
   padding-left: 50px;
-  background-image: url(../../assets/icon/icon-error.svg);
+  background-image: url(../../assets/icon/icon-warning.svg);
   background-repeat: no-repeat;
   background-position: 13px 10px;
   background-size: 25px;

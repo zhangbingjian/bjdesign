@@ -19,7 +19,7 @@ function App() {
                 <span>1231231231231内容</span>
             </Alert>
             <hr />
-            <Alert type={AlertType.Warning} closable />
+            <Alert type={AlertType.Warning} icon />
             <hr />
             <Alert type={AlertType.Error} icon closable>
                 qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu

@@ -1,34 +1,20 @@
 /** @format */
 import React from 'react';
 // import Button, {ButtonType, ButtonSize, ButtonShape} from './components/Button/button';
-import Alert, {AlertType} from './components/Alert/alert';
+// import Alert, {AlertType} from './components/Alert/alert';
+import Menu from './components/Menu/menu';
+import MenuItem from './components/Menu/menuItem';
+import {Verify} from 'crypto';
 
 function App() {
     return (
         <div style={{width: '300px', margin: '100px'}}>
-            <Alert
-                type={AlertType.Info}
-                message="123333"
-                closable
-                onClose={() => {
-                    console.log(123);
-                }}
-            />
-            <hr />
-            <Alert type={AlertType.Success} icon closable>
-                <span>1231231231231内容</span>
-            </Alert>
-            <hr />
-            <Alert type={AlertType.Warning} icon />
-            <hr />
-            <Alert type={AlertType.Error} icon closable>
-                qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu qweqhweiuaiuenqwiu
-                qweqhweiuaiu
-            </Alert>
-
-            <Alert type={AlertType.Warning} icon banner closable>
-                9999
-            </Alert>
+            <Menu defaultIndex={3} mode="vertical">
+                <MenuItem index={0}>1</MenuItem>
+                <MenuItem index={1}>2</MenuItem>
+                <MenuItem index={2}>3</MenuItem>
+                <MenuItem index={3}>4</MenuItem>
+            </Menu>
         </div>
     );
 }

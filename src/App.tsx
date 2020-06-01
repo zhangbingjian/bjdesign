@@ -4,16 +4,20 @@ import React from 'react';
 // import Alert, {AlertType} from './components/Alert/alert';
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
-import {Verify} from 'crypto';
+import SubMenu from './components/Menu/subMenu';
 
 function App() {
     return (
-        <div style={{width: '300px', margin: '100px'}}>
-            <Menu defaultIndex={3} mode="vertical">
-                <MenuItem index={0}>1</MenuItem>
-                <MenuItem index={1}>2</MenuItem>
-                <MenuItem index={2}>3</MenuItem>
-                <MenuItem index={3}>4</MenuItem>
+        <div style={{width: '600px', margin: '100px'}}>
+            <Menu defaultIndex={0} mode="vertical">
+                <MenuItem>MenuItem1</MenuItem>
+                <MenuItem>MenuItem2</MenuItem>
+                <SubMenu title="MenuItem3">
+                    <MenuItem>dropdown1</MenuItem>
+                    <MenuItem>dropdown2</MenuItem>
+                    <MenuItem>dropdown3</MenuItem>
+                </SubMenu>
+                <MenuItem>MenuItem4</MenuItem>
             </Menu>
         </div>
     );

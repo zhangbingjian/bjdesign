@@ -2,6 +2,7 @@
 
 import React, {createContext, useState} from 'react';
 import classNames from 'classnames';
+import {MenuItemProps} from './menuItem';
 
 type MenuMode = 'horizontal' | 'vertical';
 type SelectCallback = (selectIndex: number) => void;
@@ -18,12 +19,12 @@ interface IMenuContext {
     onSelect?: SelectCallback;
 }
 export const MenuContext = createContext<IMenuContext>({index: 0});
-
 const Menu: React.FC<MenuProps> = props => {
     const {defaultIndex, className, mode, style, onSelect, children} = props;
     const [currentActive, setActive] = useState(defaultIndex);
     const classes = classNames('bj-menu', className, {
         'menu-vertical': mode === 'vertical',
+        'menu-horizontal': mode !== 'vertical',
     });
     const handleClick = (index: number) => {
         setActive(index);
@@ -35,9 +36,22 @@ const Menu: React.FC<MenuProps> = props => {
         index: currentActive ? currentActive : 0,
         onSelect: handleClick,
     };
+    const renderChildren = () => {
+        return React.Children.map(children, (child, index) => {
+            const childElement = child as React.FunctionComponentElement<MenuItemProps>;
+            const {displayName} = childElement.type;
+            if (displayName === 'MenuItem' || displayName === 'SubMenu') {
+                let cloneElemen = React.cloneElement(childElement, {index});
+                return cloneElemen;
+            } else {
+                console.error('警告: Menu组件里有一个子元素，它并不是MenuItem组件');
+            }
+        });
+    };
+
     return (
         <ul className={classes} style={style}>
-            <MenuContext.Provider value={passedContext}>{children}</MenuContext.Provider>
+            <MenuContext.Provider value={passedContext}>{renderChildren()}</MenuContext.Provider>
         </ul>
     );
 };

@@ -45,3 +45,46 @@
     }
   }
 }
+
+.submenu-item {
+  position: relative;
+  border-bottom: $menu-item-active-border-width solid transparent;
+
+  &:hover {
+    border-bottom: $menu-item-active-border-width solid transparent;
+  }
+
+  .submenu-title {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.bj-submenu {
+  width: 100%;
+  text-decoration: none;
+  list-style: none;
+  position: absolute;
+  background: $white;
+  padding: 0;
+  z-index: 100;
+  top: calc(100% + 8px);
+  left: 0;
+  border: $menu-border-width solid $menu-border-color;
+  box-shadow: $submenu-box-shadow;
+  text-align: center;
+
+
+  .menu-item {
+    padding-top: $menu-item-padding-y;
+    padding-bottom: $menu-item-padding-y;
+    cursor: pointer;
+    transition: $menu-transition;
+    border-bottom: $menu-item-active-border-width solid transparent;
+
+    &:hover {
+      cursor: pointer;
+
+    }
+  }
+}

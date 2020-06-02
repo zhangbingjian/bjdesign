@@ -8,18 +8,32 @@ import SubMenu from './components/Menu/subMenu';
 
 function App() {
     return (
-        <div style={{width: '600px', margin: '100px'}}>
-            <Menu defaultIndex={0} mode="vertical">
-                <MenuItem>MenuItem1</MenuItem>
-                <MenuItem>MenuItem2</MenuItem>
-                <SubMenu title="MenuItem3">
-                    <MenuItem>dropdown1</MenuItem>
-                    <MenuItem>dropdown2</MenuItem>
-                    <MenuItem>dropdown3</MenuItem>
-                </SubMenu>
-                <MenuItem>MenuItem4</MenuItem>
-            </Menu>
-        </div>
+        <>
+            <div style={{width: '300px', margin: '100px'}}>
+                <Menu defaultIndex={'0'} mode="vertical">
+                    <MenuItem>MenuItem1</MenuItem>
+                    <MenuItem>MenuItem2</MenuItem>
+                    <SubMenu title="MenuItem3">
+                        <MenuItem>dropdown1</MenuItem>
+                        <MenuItem>dropdown2</MenuItem>
+                        <MenuItem>dropdown3</MenuItem>
+                    </SubMenu>
+                    <MenuItem>MenuItem4</MenuItem>
+                </Menu>
+            </div>
+            <div style={{width: '600px', margin: '100px'}}>
+                <Menu defaultIndex={'0'}>
+                    <MenuItem>MenuItem1</MenuItem>
+                    <MenuItem>MenuItem2</MenuItem>
+                    <SubMenu title="MenuItem3">
+                        <MenuItem>dropdown1</MenuItem>
+                        <MenuItem>dropdown2</MenuItem>
+                        <MenuItem>dropdown3</MenuItem>
+                    </SubMenu>
+                    <MenuItem>MenuItem4</MenuItem>
+                </Menu>
+            </div>
+        </>
     );
 }
 

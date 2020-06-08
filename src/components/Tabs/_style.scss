@@ -1,0 +1,15 @@
+/** @format */
+
+.tabs-horizontal {
+    width: 100%;
+    display: flex;
+    .placeholder {
+        flex: 1;
+        border-bottom: 1px solid #dddddd;
+    }
+}
+
+.TabPane {
+    padding: 10px 15px;
+    border-bottom: 2px solid #cfd;
+}

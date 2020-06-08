@@ -93,6 +93,9 @@
             transition: $menu-transition;
             border-bottom: $menu-item-active-border-width solid transparent;
         }
+        .menu-item.submenu-item {
+            padding-right: $menu-item-padding-x/2;
+        }
     }
     .submenu-title {
         padding-right: 25px;

@@ -1,5 +1,6 @@
-//顺序需要注意
+/** @format */
 
+//顺序需要注意
 
 /*
 导入时不需要加下划线,_开头是告诉sass不要将这个文件编译到css,在导入时不需加下划线,
@@ -7,19 +8,22 @@ sass对模块化的支持意思是只能当模块导入不能单独使用
 */
 
 //variables
-@import "variables";
+@import 'variables';
 
 //reboot
-@import "reboot";
+@import 'reboot';
 
 //混入声明文件
-@import "mixin";
+@import 'mixin';
 
 //button样式文件
-@import "../components/Button/style";
+@import '../components/Button/style';
 
 //Alert样式文件
-@import "../components/Alert/style";
+@import '../components/Alert/style';
 
 //Menu样式文件
-@import "../components/Menu/style";
+@import '../components/Menu/style';
+
+//Tabs样式文件
+@import '../components/Tabs/style';

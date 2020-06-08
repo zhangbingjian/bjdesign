@@ -35,6 +35,7 @@
 
 .bj-submenu {
     display: none;
+    position: relative;
 }
 
 .bj-submenu.menu-open {
@@ -60,10 +61,6 @@
 .submenu-item {
     position: relative;
     border-bottom: $menu-item-active-border-width solid transparent;
-
-    .submenu-title {
-        text-align: center;
-    }
 }
 
 .menu-horizontal {
@@ -97,6 +94,30 @@
             border-bottom: $menu-item-active-border-width solid transparent;
         }
     }
+    .submenu-title {
+        padding-right: 25px;
+        position: relative;
+        .icon-pullDown {
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: url('../../assets/icon/icon-pullDown.svg') no-repeat center;
+            background-size: 100%;
+        }
+        .is-open.icon-pullDown {
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: url('../../assets/icon/icon-pullUp.svg') no-repeat center;
+            background-size: 100%;
+        }
+    }
 }
 
 .menu-vertical {
@@ -125,6 +146,29 @@
         .submenu-title {
             text-align: center;
             padding-bottom: $menu-item-padding-y;
+            position: relative;
+            .icon-pullDown {
+                position: absolute;
+                width: 20px;
+                height: 10px;
+                right: 10px;
+                top: 50%;
+                margin-top: -5px;
+                transform: translateY(-$menu-item-padding-y/2);
+                background: url('../../assets/icon/icon-pullDown.svg') no-repeat center;
+                background-size: 95%;
+            }
+            .is-open.icon-pullDown {
+                position: absolute;
+                width: 20px;
+                height: 10px;
+                right: 10px;
+                margin-top: -5px;
+                top: 50%;
+                transform: translateY(-$menu-item-padding-y/2);
+                background: url('../../assets/icon/icon-pullUp.svg') no-repeat center;
+                background-size: 95%;
+            }
         }
     }
 

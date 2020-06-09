@@ -3,17 +3,15 @@
 import React from 'react';
 import classNames from 'classnames';
 
-interface TabPaneProps {
+export interface TabPaneProps {
     tab: string;
+    index?: number;
 }
 
 const TabPane: React.FC<TabPaneProps> = props => {
-    const {tab} = props;
-    return (
-        <>
-            <div className="TabPane">{tab}</div>
-        </>
-    );
+    const {tab, children} = props;
+    console.log(children);
+    return <>{children}</>;
 };
-
+TabPane.displayName = 'TabPane';
 export default TabPane;

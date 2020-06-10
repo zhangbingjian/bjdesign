@@ -13,13 +13,24 @@
         .labelList {
             cursor: pointer;
 
+            &.is-active {
+                color: $menu-item-active-color;
+                border-bottom: 2px solid $menu-item-active-color;
+            }
+
             &:hover {
-                color: #40a9ff;
-                border-bottom: 2px solid #40a9ff;
+                color: $menu-item-active-color;
             }
 
             border-bottom: 2px solid #dddddd;
             padding: 10px 15px;
+
+            &.is-disabled {
+                color: $menu-item-disabled-color;
+                pointer-events: none;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
         }
     }
 
@@ -32,6 +43,10 @@
             height: 100%;
             display: none;
         }
+
+        .labelList-active {
+            display: block;
+        }
     }
 
     .placeholder {
@@ -43,4 +58,5 @@
 .TabPane {
     padding: 10px 15px;
     border-bottom: 2px solid #cfd;
+
 }

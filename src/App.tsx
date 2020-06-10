@@ -14,6 +14,9 @@ function App() {
                         <div>999</div>
                     </TabPane>
                     <TabPane tab="tab2">3333</TabPane>
+                    <TabPane tab="tab2" disabled>
+                        444
+                    </TabPane>
                 </Tabs>
             </div>
             <Menu>

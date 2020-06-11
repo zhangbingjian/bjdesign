@@ -9,6 +9,7 @@ export interface TabPaneProps {
     index?: number;
     className?: string;
     disabled?: Boolean;
+    children?: any;
 }
 
 const TabPane: React.FC<TabPaneProps> = props => {
@@ -20,8 +21,8 @@ const TabPane: React.FC<TabPaneProps> = props => {
     });
 
     const changeActiveIndex = () => {
-        if (context.onSelect && !disabled && typeof index === 'number') {
-            context.onSelect(index);
+        if (context.onChange && !disabled && typeof index === 'number') {
+            context.onChange(index);
         }
     };
 

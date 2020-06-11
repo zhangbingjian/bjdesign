@@ -11,18 +11,18 @@ interface TabsProps {
     defaultIndex?: number;
     mode?: TabsMode;
     className?: string;
-    onSelect?: SelectCallback;
+    onChange?: SelectCallback;
 }
 
 interface ITabsContext {
     index: number;
-    onSelect?: SelectCallback;
+    onChange?: SelectCallback;
 }
 
 export const TabsContext = createContext<ITabsContext>({index: 0});
 
 const Tabs: React.FC<TabsProps> = props => {
-    const {className, mode, children, defaultIndex, onSelect} = props;
+    const {className, mode, children, defaultIndex, onChange} = props;
     const [currentActive, setActive] = useState(defaultIndex);
     const classes = classNames(className, {
         'tabs-vertical': mode === 'vertical',
@@ -31,14 +31,14 @@ const Tabs: React.FC<TabsProps> = props => {
 
     const handleClick = (index: number) => {
         setActive(index);
-        if (onSelect) {
-            onSelect(index);
+        if (onChange) {
+            onChange(index);
         }
     };
 
     const passedContext: ITabsContext = {
         index: currentActive ? currentActive : 0,
-        onSelect: handleClick,
+        onChange: handleClick,
     };
 
     const renderLabelChildren = () => {
@@ -60,15 +60,13 @@ const Tabs: React.FC<TabsProps> = props => {
             const {displayName} = childElement.type;
             if (displayName === 'TabPane') {
                 let cloneElemen = React.cloneElement(childElement, {index});
-                console.log(cloneElemen);
-
-                const labelListClass = classNames('labelList', {
-                    'labelList-active': index === passedContext.index,
+                const labelListClass = classNames('contentList', {
+                    'contentList-active': index === passedContext.index,
                 });
                 return (
                     <>
                         <div className={labelListClass} key={`${childElement.props.tab}-content-${index}`}>
-                            {`${childElement.props.tab}-content-${index}`}
+                            {cloneElemen.props.children}
                         </div>
                     </>
                 );
@@ -83,7 +81,7 @@ const Tabs: React.FC<TabsProps> = props => {
             <div className={classes}>
                 <div className="label">
                     <TabsContext.Provider value={passedContext}>{renderLabelChildren()}</TabsContext.Provider>
-                    {mode !== 'vertical' && <div className="placeholder"></div>}
+                    <div className="placeholder"></div>
                 </div>
                 <div className="tabs-content">{renderContextChildren()}</div>
             </div>

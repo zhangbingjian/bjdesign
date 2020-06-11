@@ -12,19 +12,15 @@
 
         .labelList {
             cursor: pointer;
-
+            border-bottom: 2px solid #dddddd;
+            padding: 10px 15px;
             &.is-active {
                 color: $menu-item-active-color;
                 border-bottom: 2px solid $menu-item-active-color;
             }
-
             &:hover {
                 color: $menu-item-active-color;
             }
-
-            border-bottom: 2px solid #dddddd;
-            padding: 10px 15px;
-
             &.is-disabled {
                 color: $menu-item-disabled-color;
                 pointer-events: none;
@@ -38,13 +34,13 @@
         flex: 1;
         width: 100%;
 
-        .labelList {
+        .contentList {
             width: 100%;
             height: 100%;
             display: none;
         }
 
-        .labelList-active {
+        .contentList-active {
             display: block;
         }
     }
@@ -55,8 +51,51 @@
     }
 }
 
-.TabPane {
-    padding: 10px 15px;
-    border-bottom: 2px solid #cfd;
+.tabs-vertical {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    .label {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        height: 100%;
+        .labelList {
+            padding: 7px 30px;
+            cursor: pointer;
+            border-right: 2px solid #dddddd;
 
+            &:hover {
+                color: $menu-item-active-color;
+            }
+            &.is-active {
+                color: $menu-item-active-color;
+                border-right: 2px solid $menu-item-active-color;
+            }
+            &.is-disabled {
+                color: $menu-item-disabled-color;
+                pointer-events: none;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+        }
+        .placeholder {
+            flex: 1;
+            border-right: 2px solid #dddddd;
+        }
+    }
+
+    .tabs-content {
+        flex: 1;
+
+        .contentList {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .contentList-active {
+            display: block;
+        }
+    }
 }

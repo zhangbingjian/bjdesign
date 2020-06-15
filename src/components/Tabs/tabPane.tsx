@@ -18,16 +18,19 @@ const TabPane: React.FC<TabPaneProps> = props => {
     const classes = classNames('labelList', className, {
         'is-disabled': disabled,
         'is-active': index === context.index,
+        'type-label': context.type === 'label',
+        'type-card': context.type !== 'label',
     });
 
-    const changeActiveIndex = () => {
+    const changeActiveIndex = (e: React.MouseEvent) => {
+        e.preventDefault();
         if (context.onChange && !disabled && typeof index === 'number') {
             context.onChange(index);
         }
     };
 
     return (
-        <div className={classes} onClick={changeActiveIndex}>
+        <div className={classes} onClick={changeActiveIndex} style={{userSelect: 'none'}}>
             {tab}
         </div>
     );

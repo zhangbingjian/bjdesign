@@ -5,11 +5,13 @@ import classNames from 'classnames';
 import {TabPaneProps} from './tabPane';
 
 type TabsMode = 'horizontal' | 'vertical';
+type TabsType = 'label' | 'card';
 type SelectCallback = (selectIndex: number) => void;
 
 interface TabsProps {
     defaultIndex?: number;
     mode?: TabsMode;
+    type?: TabsType;
     className?: string;
     onChange?: SelectCallback;
 }
@@ -17,12 +19,13 @@ interface TabsProps {
 interface ITabsContext {
     index: number;
     onChange?: SelectCallback;
+    type?: TabsType;
 }
 
 export const TabsContext = createContext<ITabsContext>({index: 0});
 
 const Tabs: React.FC<TabsProps> = props => {
-    const {className, mode, children, defaultIndex, onChange} = props;
+    const {className, mode, children, defaultIndex, onChange, type} = props;
     const [currentActive, setActive] = useState(defaultIndex);
     const classes = classNames(className, {
         'tabs-vertical': mode === 'vertical',
@@ -39,6 +42,7 @@ const Tabs: React.FC<TabsProps> = props => {
     const passedContext: ITabsContext = {
         index: currentActive ? currentActive : 0,
         onChange: handleClick,
+        type,
     };
 
     const renderLabelChildren = () => {
@@ -92,6 +96,7 @@ const Tabs: React.FC<TabsProps> = props => {
 Tabs.defaultProps = {
     defaultIndex: 0,
     mode: 'horizontal',
+    type: 'label',
 };
 
 export default Tabs;

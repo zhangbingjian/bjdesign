@@ -1,0 +1,20 @@
+/** @format */
+
+//这事scss类似对象的写法()包裹
+// $theme-colors: ("primary": $primary,
+//   "secondary": $secondary,
+//   "success": $success,
+//   "info": $info,
+//   "warning": $warning,
+//   "danger": $danger,
+//   "light": $light,
+//   "dark": $dark
+//);
+
+//scss的循环@each  $key,$val  代表in后面对象的键和值用逗号隔开
+@each $key, $val in $theme-colors {
+    .icon-#{$key} {
+        //类似于模板字符串使用  #{变量}
+        color: $val;
+    }
+}

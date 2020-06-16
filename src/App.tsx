@@ -10,7 +10,7 @@ library.add(fas);
 function App() {
     return (
         <>
-            {/* <Icon icon="alipay" theme="danger" size="10x" /> */}
+            <Icon icon="alipay" theme="danger" size="10x" />
             <Menu>
                 <MenuItem>1</MenuItem>
                 <MenuItem>2</MenuItem>

@@ -13,13 +13,8 @@ interface BaseAlertProps {
     onClose?: Function; //关闭的回调函数
     banner?: boolean; //是否用作顶部公告
 }
-
-export enum AlertType { //alert类型
-    Success = 'success',
-    Info = 'info',
-    Warning = 'warning',
-    Error = 'error',
-}
+//alert类型
+export type AlertType = 'success' | 'info' | 'warning' | 'error';
 
 const Alert: React.FC<BaseAlertProps> = props => {
     const [show, setShow] = useState(true);
@@ -74,7 +69,7 @@ const Alert: React.FC<BaseAlertProps> = props => {
 
 Alert.defaultProps = {
     message: 'this is a Alert',
-    type: AlertType.Info,
+    type: 'info',
     closable: false,
     banner: false,
     onClose: () => {

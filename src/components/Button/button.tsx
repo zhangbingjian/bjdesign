@@ -8,22 +8,14 @@
 
 import React from 'react';
 import classNames from 'classnames';
+//按钮的大小
+export type ButtonSize = 'lg' | 'sm' | 'custom';
 
-export enum ButtonSize { //按钮的大小
-    Large = 'lg',
-    Small = 'sm',
-    Custom = 'custom',
-}
 export enum ButtonShape { //按钮类型
     Circle = 'circle',
 }
-
-export enum ButtonType { //按钮类型
-    Promary = 'primary',
-    Default = 'default',
-    Danger = 'danger',
-    Link = 'link',
-}
+//按钮类型
+export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 
 interface BaseButtonProps {
     className?: string;
@@ -50,11 +42,11 @@ const Button: React.FC<ButtonProps> = props => {
         [`btn-${size}`]: size,
         'btn-block': block,
         [`btn-shape-${shape}`]: shape,
-        disabled: btnType === ButtonType.Link && disabled,
+        disabled: btnType === 'link' && disabled,
     });
 
-    if (size === ButtonSize.Custom) {
-        if (btnType === ButtonType.Link && href) {
+    if (size === 'custom') {
+        if (btnType === 'link' && href) {
             return (
                 <div style={{width, height, display: 'inline-block'}}>
                     <a
@@ -84,7 +76,7 @@ const Button: React.FC<ButtonProps> = props => {
         }
     }
 
-    if (btnType === ButtonType.Link && href) {
+    if (btnType === 'link' && href) {
         return (
             <a href={href} className={classes} {...restProps}>
                 {children}
@@ -100,7 +92,7 @@ const Button: React.FC<ButtonProps> = props => {
 };
 Button.defaultProps = {
     disabled: false,
-    btnType: ButtonType.Default,
+    btnType: 'default',
     children: '确认',
 };
 

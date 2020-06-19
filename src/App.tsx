@@ -7,22 +7,19 @@ import Icon from './components/Icon/icon';
 import MenuItem from './components/Menu/menuItem';
 import SubMenu from './components/Menu/subMenu';
 import {faCoffee} from '@fortawesome/free-solid-svg-icons';
+import Button from './components/Button/button';
+import Alert from './components/Alert/alert';
 
 function App() {
     const [a, setA] = useState(false);
     return (
         <>
-            <Menu mode="vertical">
-                <MenuItem>1</MenuItem>
-                <SubMenu title="2">
-                    <MenuItem>1</MenuItem>
-                    <MenuItem>2</MenuItem>
-                </SubMenu>
-            </Menu>
-
-            {/* <Transition in={a} timeout={300} animation="zoom-in-top"></Transition> */}
-
-            <Icon icon={faCoffee} theme="danger" />
+            <Button btnType="default" size="lg" width="100%">
+                123
+            </Button>
+            <Alert message={'message'} type="success" closable>
+                333
+            </Alert>
         </>
     );
 }

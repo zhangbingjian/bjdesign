@@ -1,22 +1,28 @@
 /** @format */
-import React from 'react';
+import React, {useState} from 'react';
 import Menu from './components/Menu/menu';
-import MenuItem from './components/Menu/menuItem';
+import Transition from './components/Transition/transition';
 import Icon from './components/Icon/icon';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {fas} from '@fortawesome/free-solid-svg-icons';
 
-library.add(fas);
+import MenuItem from './components/Menu/menuItem';
+import SubMenu from './components/Menu/subMenu';
+import {faCoffee} from '@fortawesome/free-solid-svg-icons';
+
 function App() {
+    const [a, setA] = useState(false);
     return (
         <>
-            {/* <Icon icon="alipay" theme="danger" size="10x" /> */}
-            <Menu>
+            <Menu mode="vertical">
                 <MenuItem>1</MenuItem>
-                <MenuItem>2</MenuItem>
-                <MenuItem>3</MenuItem>
-                <MenuItem>4</MenuItem>
+                <SubMenu title="2">
+                    <MenuItem>1</MenuItem>
+                    <MenuItem>2</MenuItem>
+                </SubMenu>
             </Menu>
+
+            {/* <Transition in={a} timeout={300} animation="zoom-in-top"></Transition> */}
+
+            <Icon icon={faCoffee} theme="danger" />
         </>
     );
 }

@@ -2,6 +2,7 @@
 
 import React, {useRef, useState} from 'react';
 import classNames from 'classnames';
+import Transition from '../Transition/transition';
 
 interface BaseAlertProps {
     className?: string;
@@ -29,27 +30,27 @@ const Alert: React.FC<BaseAlertProps> = props => {
     if (banner) {
         return (
             <>
-                {show && (
+                <Transition timeout={500} animation="zoom-in-top" in={show}>
                     <div className={classes} ref={close}>
                         {closable && (
                             <div
                                 className="closed"
                                 onClick={() => {
-                                    setShow(false);
                                     onClose && onClose();
+                                    setShow(false);
                                 }}></div>
                         )}
                         <div className="message-line">{message}</div>
                         <div className="alert-children">{children}</div>
                     </div>
-                )}
+                </Transition>
             </>
         );
     }
 
     return (
         <>
-            {show && (
+            <Transition timeout={500} animation="zoom-in-top" in={show}>
                 <div className={classes} ref={close}>
                     {closable && (
                         <div
@@ -62,7 +63,7 @@ const Alert: React.FC<BaseAlertProps> = props => {
                     <div className="message-line">{message}</div>
                     <div className="alert-children">{children}</div>
                 </div>
-            )}
+            </Transition>
         </>
     );
 };

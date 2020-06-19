@@ -20,6 +20,11 @@ function App() {
             <Alert message={'message'} type="success" closable>
                 333
             </Alert>
+            <div>
+                <Button btnType="default" size="lg" width="100%">
+                    123
+                </Button>
+            </div>
         </>
     );
 }

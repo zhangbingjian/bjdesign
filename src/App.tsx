@@ -22,7 +22,7 @@ function App() {
             </Alert>
             <div>
                 <Button btnType="default" size="lg" width="100%">
-                    123
+                    1234
                 </Button>
             </div>
         </>

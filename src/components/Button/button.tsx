@@ -11,9 +11,8 @@ import classNames from 'classnames';
 //按钮的大小
 export type ButtonSize = 'lg' | 'sm' | 'custom';
 
-export enum ButtonShape { //按钮类型
-    Circle = 'circle',
-}
+export type ButtonShape = 'circle'; //按钮类型
+
 //按钮类型
 export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 

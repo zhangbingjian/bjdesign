@@ -13,7 +13,7 @@ module.exports = ({config}) => {
             {
                 loader: require.resolve('react-docgen-typescript-loader'),
                 options: {
-                    shouldExtractLiteralValuesFromEnum: true,
+                    shouldExtractLiteralValuesFromEnum: false,
                     propFilter: prop => {
                         if (prop.parent) {
                             return !prop.parent.fileName.includes('node_modules');

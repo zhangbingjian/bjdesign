@@ -2,13 +2,20 @@
 
 import '../src/styles/index.scss';
 import React from 'react';
-import {addDecorator} from '@storybook/react';
+import {addDecorator, addParameters} from '@storybook/react';
+import {withInfo} from '@storybook/addon-info';
 
-const styles: React.CSSProperties = {
-    textAlign: 'center',
+const wrapperStyle: React.CSSProperties = {
+    padding: '25px 30px',
 };
 
-const centerDecorater = (storyFn: any) => {
-    return <div style={styles}>{storyFn()}</div>;
-};
-addDecorator(centerDecorater);
+const storyWrapper = (storyFn: any) => <div style={wrapperStyle}>{storyFn()}</div>;
+
+addDecorator(storyWrapper);
+addDecorator(withInfo);
+addParameters({
+    info: {
+        inline: true,
+        header: false,
+    },
+});

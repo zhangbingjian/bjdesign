@@ -11,12 +11,6 @@ test('our first react test case', () => {
     expect(element).toBeInTheDocument();
 });
 
-const testProps: ButtonProps = {
-    btnType: ButtonType.Promary,
-    size: ButtonSize.Large,
-    className: 'klass',
-};
-
 const disabledProps: ButtonProps = {
     disabled: true,
     onClick: jest.fn(),
@@ -31,14 +25,14 @@ describe('texst Button component', () => {
         expect(element).toHaveClass('btn btn-default');
     });
     it('should render the correct component based on different props', () => {
-        const wrapper = render(<Button {...testProps}>Nice</Button>);
+        const wrapper = render(<Button>Nice</Button>);
         const element = wrapper.getByText('Nice');
         expect(element).toBeInTheDocument();
         expect(element).toHaveClass('btn-primary btn-lg klass');
     });
     it('should render a link when btnType equals link and href is privided', () => {
         const wrapper = render(
-            <Button btnType={ButtonType.Link} href="http://dummyurl">
+            <Button btnType="link" href="http://dummyurl">
                 Link
             </Button>,
         );

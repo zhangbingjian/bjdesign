@@ -6,7 +6,7 @@
  * @time: 2020-5-27
  */
 
-import React from 'react';
+import React, {FC, ButtonHTMLAttributes, AnchorHTMLAttributes} from 'react';
 import classNames from 'classnames';
 //按钮的大小
 export type ButtonSize = 'lg' | 'sm' | 'custom';
@@ -18,22 +18,29 @@ export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 
 interface BaseButtonProps {
     className?: string;
-    disabled?: boolean; //禁用状态
-    size?: ButtonSize; //按钮大小
-    btnType?: ButtonType; //按钮的类型
-    children?: React.ReactNode; //按钮内部元素
-    href?: string; //按钮链接使用 (btnType为Link时必传)
-    width?: string; // 按钮宽度(size为custom时有效)
-    height?: string; // 按钮高度(size为custom时有效)
-    shape?: ButtonShape; //按钮形状 不传为小圆角
-    block?: Boolean; // 将按钮宽度调整为其父宽度
+    /**设置禁用状态 */
+    disabled?: boolean;
+    /**设置按钮大小 */
+    size?: ButtonSize;
+    /**设置按钮的类型 */
+    btnType?: ButtonType;
+    /**添加按钮内部元素 */
+    children?: React.ReactNode;
+    /**设置按钮链接 (btnType为Link时必传) */
+    href?: string;
+    /**设置按钮宽度(size为custom时有效) */
+    width?: string;
+    /**设置按钮高度(size为custom时有效) */
+    height?: string;
+    /**按钮形状 不传为小圆角 */
+    shape?: ButtonShape;
+    /**将按钮宽度调整为其父宽度 */
+    block?: Boolean;
 }
-
-type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>;
-type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>;
+type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
+type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
-
-const Button: React.FC<ButtonProps> = props => {
+export const Button: FC<ButtonProps> = props => {
     const {btnType, disabled, size, children, href, width, height, className, shape, block, ...restProps} = props;
 
     const classes = classNames('btn', className, {

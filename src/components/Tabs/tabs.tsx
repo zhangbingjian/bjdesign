@@ -1,30 +1,34 @@
 /** @format */
 
-import React, {useContext, createContext, useState} from 'react';
+import React, {FC, useContext, createContext, useState} from 'react';
 import classNames from 'classnames';
 import {TabPaneProps} from './tabPane';
 
 type TabsMode = 'horizontal' | 'vertical';
-type TabsType = 'label' | 'card';
+type TabPanType = 'label' | 'card';
 type SelectCallback = (selectIndex: number) => void;
 
 interface TabsProps {
+    /**默认选中的tabPan */
     defaultIndex?: number;
+    /**Tabs的方向 */
     mode?: TabsMode;
-    type?: TabsType;
+    /**TabPan的样式 */
+    type?: TabPanType;
     className?: string;
+    /**激活改变时的回调函数 */
     onChange?: SelectCallback;
 }
 
 interface ITabsContext {
     index: number;
     onChange?: SelectCallback;
-    type?: TabsType;
+    type?: TabPanType;
 }
 
 export const TabsContext = createContext<ITabsContext>({index: 0});
 
-const Tabs: React.FC<TabsProps> = props => {
+export const Tabs: FC<TabsProps> = props => {
     const {className, mode, children, defaultIndex, onChange, type} = props;
     const [currentActive, setActive] = useState(defaultIndex);
     const classes = classNames(className, {

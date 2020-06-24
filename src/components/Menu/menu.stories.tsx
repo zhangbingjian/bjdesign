@@ -5,7 +5,7 @@ import {storiesOf} from '@storybook/react';
 import {action} from '@storybook/addon-actions';
 import Menu from './menu';
 import MenuItem from './menuItem';
-import subMenu from './subMenu';
+
 import SubMenu from './subMenu';
 
 const defaultMenu = () => (

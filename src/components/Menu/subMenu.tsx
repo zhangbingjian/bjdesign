@@ -1,18 +1,20 @@
 /** @format */
 
-import React, {createContext, useState, useContext} from 'react';
+import React, {FC, createContext, useState, useContext} from 'react';
 import classNames from 'classnames';
 import {MenuContext} from './menu';
 import {MenuItemProps} from './menuItem';
 import Transition from '../Transition/transition';
 
 export interface SubMenuProps {
+    /**SubMenu的索引 */
     index?: string;
+    /**SubMenu的标题(必传) */
     title: string;
     className?: string;
 }
 
-const SubMenu: React.FC<SubMenuProps> = props => {
+export const SubMenu: FC<SubMenuProps> = props => {
     const {index, title, className, children} = props;
     const context = useContext(MenuContext);
     const defaultOpenMenu = context.defaultOpenSubMenu as Array<string>;

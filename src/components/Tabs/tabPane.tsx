@@ -1,18 +1,21 @@
 /** @format */
 
-import React, {useContext} from 'react';
+import React, {FC, useContext} from 'react';
 import classNames from 'classnames';
 import {TabsContext} from './tabs';
 
 export interface TabPaneProps {
+    /**TabPane的标题 */
     tab: string;
+    /**TanPane的索引 */
     index?: number;
     className?: string;
+    /**禁用TabPane */
     disabled?: Boolean;
     children?: any;
 }
 
-const TabPane: React.FC<TabPaneProps> = props => {
+export const TabPane: FC<TabPaneProps> = props => {
     const {tab, children, className, index, disabled} = props;
     const context = useContext(TabsContext);
     const classes = classNames('labelList', className, {

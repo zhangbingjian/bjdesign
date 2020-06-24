@@ -1,23 +1,30 @@
 /** @format */
 
-import React, {useRef, useState} from 'react';
+import React, {FC, useRef, useState} from 'react';
 import classNames from 'classnames';
 import Transition from '../Transition/transition';
 
 interface BaseAlertProps {
     className?: string;
-    message?: string; //提示的信息
-    type?: AlertType; //提示的类型
-    children?: React.ReactNode; //按钮内部元素
-    closable?: boolean; //是否可关闭(默认不可)
-    icon?: boolean; //是否显示icon图标
-    onClose?: Function; //关闭的回调函数
-    banner?: boolean; //是否用作顶部公告
+    /**Alert的标题 */
+    message?: string;
+    /**Alert的类型 ('success' | 'info' | 'warning' | 'error') */
+    type?: AlertType;
+    /**Alert内的信息 */
+    children?: React.ReactNode;
+    /**是否可关闭(默认不可关闭) */
+    closable?: boolean;
+    /**是否显示icon图标(默认不显示) */
+    icon?: boolean;
+    /**关闭的回调函数 */
+    onClose?: Function;
+    /**是否用作顶部公告 */
+    banner?: boolean;
 }
 //alert类型
 export type AlertType = 'success' | 'info' | 'warning' | 'error';
 
-const Alert: React.FC<BaseAlertProps> = props => {
+export const Alert: FC<BaseAlertProps> = props => {
     const [show, setShow] = useState(true);
     const {className, message, type, children, closable, onClose, icon, banner} = props;
     const classes = classNames('alert', className, {

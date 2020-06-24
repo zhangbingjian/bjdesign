@@ -49,7 +49,7 @@ const buttonWhitConfig = () => (
     </>
 );
 
-storiesOf('Button Component', module)
+storiesOf('Button', module)
     .add('默认样式Button', defaultButton)
     .add('Button大小', buttonWhitSize)
     .add('Button类型', buttonWhitType)

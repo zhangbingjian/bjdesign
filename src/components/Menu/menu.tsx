@@ -1,17 +1,21 @@
 /** @format */
 
-import React, {createContext, useState} from 'react';
+import React, {FC, createContext, useState} from 'react';
 import classNames from 'classnames';
 import {MenuItemProps} from './menuItem';
 
 type MenuMode = 'horizontal' | 'vertical';
 type SelectCallback = (selectIndex: string) => void;
 export interface MenuProps {
+    /**默认选中的Index */
     defaultIndex?: string;
     className?: string;
+    /**Menu的模式 ('horizontal' | 'vertical') */
     mode?: MenuMode;
     style?: React.CSSProperties;
+    /**切换时执行的回调函数 */
     onSelect?: SelectCallback;
+    /**默认展开的Menu(mode为vertical时有效) */
     defaultOpenSubMenu?: string[];
 }
 
@@ -22,7 +26,7 @@ interface IMenuContext {
     defaultOpenSubMenu?: string[];
 }
 export const MenuContext = createContext<IMenuContext>({index: '0'});
-const Menu: React.FC<MenuProps> = props => {
+export const Menu: FC<MenuProps> = props => {
     const {defaultIndex, className, mode, style, onSelect, children, defaultOpenSubMenu} = props;
     const [currentActive, setActive] = useState(defaultIndex);
     const classes = classNames('bj-menu', className, {

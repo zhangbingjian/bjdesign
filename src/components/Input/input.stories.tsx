@@ -8,12 +8,13 @@ import Input from './input';
 const defaultInput = () => {
     return (
         <>
-            <Input maxLength={5} size="large" />
+            <Input size="large" />
             <hr />
             <Input
                 maxLength={5}
+                value="1323123"
                 onChange={() => {
-                    console.log('输入了');
+                    console.log('改变了');
                 }}
             />
             <hr />

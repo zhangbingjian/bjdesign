@@ -1,9 +1,12 @@
 /** @format */
 
+.bj-input-box {
+    display: flex;
+}
 .bj-input {
     border: 1px solid #d9d9d9;
     padding-left: 5px;
-    border-radius: 3px;
+    border-radius: 2px;
     &:hover {
         border-color: #40a9ff;
     }
@@ -21,12 +24,73 @@
 .input-large {
     height: 40px;
     font-size: 18px;
+    line-height: 40px;
 }
 .input-middle {
     height: 32px;
+    line-height: 32px;
     font-size: 16px;
 }
 .input-small {
     height: 24px;
+    line-height: 24px;
     font-size: 14px;
+}
+
+.bj-input-addonBefore {
+    height: 32px;
+    display: inline-block;
+    line-height: 32px;
+    font-size: 16px;
+    border: 1px solid #d9d9d9;
+    padding: 0 11px;
+    border-right: 0;
+    color: rgba(0, 0, 0, 0.65);
+    background-color: #fafafa;
+}
+
+.addonBefore-large {
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+}
+
+.addonBefore-middle {
+    height: 32px;
+    font-size: 16px;
+    line-height: 32px;
+}
+.addonBefore-small {
+    height: 24px;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.bj-input-addonAfter {
+    height: 32px;
+    display: inline-block;
+    line-height: 32px;
+    font-size: 16px;
+    border: 1px solid #d9d9d9;
+    padding: 0 11px;
+    border-left: 0;
+    color: rgba(0, 0, 0, 0.65);
+    background-color: #fafafa;
+}
+
+.addonAfter-large {
+    height: 40px;
+    font-size: 18px;
+    line-height: 40px;
+}
+
+.addonAfter-middle {
+    height: 32px;
+    font-size: 16px;
+    line-height: 32px;
+}
+.addonAfter-small {
+    height: 24px;
+    font-size: 14px;
+    line-height: 24px;
 }

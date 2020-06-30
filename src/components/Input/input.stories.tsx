@@ -8,7 +8,7 @@ import Input from './input';
 const defaultInput = () => {
     return (
         <>
-            <Input size="large" />
+            <Input size="large" addonBefore="http://" addonAfter=".com" />
             <hr />
             <Input
                 maxLength={5}
@@ -16,9 +16,11 @@ const defaultInput = () => {
                 onChange={() => {
                     console.log('改变了');
                 }}
+                addonBefore="https://"
+                addonAfter=".com"
             />
             <hr />
-            <Input maxLength={5} size="small" />
+            <Input maxLength={5} size="small" addonBefore="http://" addonAfter=".com" />
         </>
     );
 };

@@ -85,9 +85,6 @@ Alert.defaultProps = {
     type: 'info',
     closable: false,
     banner: false,
-    onClose: () => {
-        console.log('关闭alert');
-    },
 };
 
 export default Alert;

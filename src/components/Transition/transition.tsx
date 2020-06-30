@@ -1,4 +1,9 @@
 /** @format */
+/**
+ * @fileOverview 动画组件
+ * @author: 炳健
+ * @time: 2020-6-16
+ */
 
 import React from 'react';
 import {CSSTransition} from 'react-transition-group';

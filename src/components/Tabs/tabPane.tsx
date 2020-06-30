@@ -1,5 +1,10 @@
 /** @format */
 
+/**
+ * @fileOverview tabPane组件
+ * @author: 炳健
+ * @time: 2020-6-8
+ */
 import React, {FC, useContext} from 'react';
 import classNames from 'classnames';
 import {TabsContext} from './tabs';

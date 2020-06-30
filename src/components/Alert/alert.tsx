@@ -1,5 +1,10 @@
 /** @format */
 
+/**
+ * @fileOverview alert组件
+ * @author: 炳健
+ * @time: 2020-5-28
+ */
 import React, {FC, useRef, useState} from 'react';
 import classNames from 'classnames';
 import Transition from '../Transition/transition';

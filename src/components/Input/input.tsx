@@ -1,6 +1,12 @@
 /** @format */
 
-import React, {FC, useState} from 'react';
+/**
+ * @fileOverview input按钮组件
+ * @author: 炳健
+ * @time: 2020-6-29
+ */
+
+import React, {FC, useState, InputHTMLAttributes} from 'react';
 import classNames from 'classnames';
 
 export interface InputProps {
@@ -22,8 +28,9 @@ export interface InputProps {
     onPressEnter?: Function;
 }
 type InputSize = 'large' | 'middle' | 'small';
+type NativeButtonProps = InputProps & InputHTMLAttributes<HTMLElement>;
 
-export const Input: FC<InputProps> = props => {
+export const Input: FC<NativeButtonProps> = props => {
     const {maxLength, onChange, className, size, placeholder, value, disabled, onPressEnter} = props;
     let inputValue = value ? value : '';
     const [inputBoxValue, setInputBoxValue] = useState(inputValue);

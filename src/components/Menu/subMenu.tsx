@@ -1,5 +1,10 @@
 /** @format */
 
+/**
+ * @fileOverview menuItem组件
+ * @author: 炳健
+ * @time: 2020-6-2
+ */
 import React, {FC, createContext, useState, useContext} from 'react';
 import classNames from 'classnames';
 import {MenuContext} from './menu';

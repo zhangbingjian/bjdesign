@@ -1,5 +1,11 @@
 /** @format */
 
+/**
+ * @fileOverview icon组件
+ * @author: 炳健
+ * @time: 2020-6-15
+ */
+
 import React from 'react';
 import classNames from 'classnames';
 import {FontAwesomeIcon, FontAwesomeIconProps} from '@fortawesome/react-fontawesome';

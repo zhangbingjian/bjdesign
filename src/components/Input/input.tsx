@@ -26,9 +26,9 @@ export interface InputProps {
     addonAfter?: string | ReactNode;
     /**是否禁用 */
     disabled?: boolean;
-    /**输入框内容变化时的回调 (e)=>{} */
+    /**输入框内容变化时的回调 function(e) */
     onChange?: Function;
-    /**按下回车键后的回调 (e)=>{}*/
+    /**按下回车键后的回调 function(e)*/
     onPressEnter?: Function;
 }
 export type InputSize = 'large' | 'middle' | 'small';

@@ -10,7 +10,7 @@ import React, {FC, useState, InputHTMLAttributes, ReactNode} from 'react';
 import classNames from 'classnames';
 
 export interface InputProps {
-    text: {text: string; setText: Function};
+    text?: {text: string; setText: Function};
     children?: any;
     className?: string;
     /**最大长度 */

@@ -10,6 +10,7 @@ import React, {FC, useState, InputHTMLAttributes, ReactNode} from 'react';
 import classNames from 'classnames';
 
 export interface InputProps {
+    text: {text: string; setText: Function};
     children?: any;
     className?: string;
     /**最大长度 */
@@ -46,6 +47,7 @@ export const Input: FC<InputProps> = props => {
         onPressEnter,
         addonBefore,
         addonAfter,
+        text,
     } = props;
     let inputValue = value ? value : '';
     const [inputBoxValue, setInputBoxValue] = useState(inputValue);
@@ -77,15 +79,18 @@ export const Input: FC<InputProps> = props => {
                         if (inputBoxValue.length < maxLength) {
                             onChange && onChange(e);
                             setInputBoxValue(e.target.value);
+                            text.setText(e.target.value);
                         } else {
                             if (inputBoxValue.length > e.target.value.length) {
                                 onChange && onChange(e);
                                 setInputBoxValue(e.target.value);
+                                text.setText(e.target.value);
                             }
                         }
                     } else {
                         onChange && onChange(e);
                         setInputBoxValue(e.target.value);
+                        text.setText(e.target.value);
                     }
                 }}
             />

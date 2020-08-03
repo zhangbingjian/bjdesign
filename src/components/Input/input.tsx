@@ -6,7 +6,7 @@
  * @time: 2020-6-29
  */
 
-import React, {FC, useState, InputHTMLAttributes, ReactNode} from 'react';
+import React, {FC, useState, InputHTMLAttributes, ReactNode, useEffect} from 'react';
 import classNames from 'classnames';
 
 export interface InputProps {
@@ -17,6 +17,8 @@ export interface InputProps {
     maxLength?: number;
     /**控件大小 ('large' | 'middle' | 'small') */
     size?: InputSize;
+
+    style?: React.CSSProperties;
     /**占位符 */
     placeholder?: string;
     /**input的默认值 */
@@ -48,9 +50,13 @@ export const Input: FC<InputProps> = props => {
         addonBefore,
         addonAfter,
         text,
+        style,
     } = props;
     let inputValue = value ? value : '';
     const [inputBoxValue, setInputBoxValue] = useState(inputValue);
+    useEffect(() => {
+        value && setInputBoxValue(value);
+    }, [value]);
     const classes = classNames('bj-input', className, {
         [`input-${size}`]: size,
     });
@@ -61,7 +67,7 @@ export const Input: FC<InputProps> = props => {
         [`addonAfter-${size}`]: size,
     });
     return (
-        <span className="bj-input-box">
+        <span className="bj-input-box" style={style}>
             {addonBefore && <div className={addonBeforeClass}>{addonBefore}</div>}
             <input
                 type="text"
@@ -79,18 +85,18 @@ export const Input: FC<InputProps> = props => {
                         if (inputBoxValue.length < maxLength) {
                             onChange && onChange(e);
                             setInputBoxValue(e.target.value);
-                            text.setText(e.target.value);
+                            text && text.setText(e.target.value);
                         } else {
                             if (inputBoxValue.length > e.target.value.length) {
                                 onChange && onChange(e);
                                 setInputBoxValue(e.target.value);
-                                text.setText(e.target.value);
+                                text && text.setText(e.target.value);
                             }
                         }
                     } else {
                         onChange && onChange(e);
                         setInputBoxValue(e.target.value);
-                        text.setText(e.target.value);
+                        text && text.setText(e.target.value);
                     }
                 }}
             />
